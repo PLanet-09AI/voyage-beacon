@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Home, Info, Star, Contact, LogIn, UserPlus } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { name: "Home", href: "#", icon: Home },
-    { name: "About", href: "#about", icon: Info },
-    { name: "Features", href: "#features", icon: Star },
-    { name: "Contact", href: "#contact", icon: Contact },
+    { name: "Home", href: "/", icon: Home },
+    { name: "About", href: "/about", icon: Info },
+    { name: "Features", href: "/features", icon: Star },
+    { name: "Contact", href: "/contact", icon: Contact },
   ];
 
   return (
@@ -20,9 +21,9 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <div className="flex items-center">
               <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">A</span>
+                <span className="text-white font-bold text-sm">L</span>
               </div>
-              <span className="ml-2 text-xl font-bold text-foreground">AppName</span>
+              <span className="ml-2 text-xl font-bold text-foreground">Luyanda</span>
             </div>
           </div>
 
@@ -30,13 +31,23 @@ const Navbar = () => {
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-muted-foreground hover:text-foreground px-3 py-2 rounded-md text-sm font-medium transition-smooth"
-                >
-                  {item.name}
-                </a>
+                item.href.startsWith("/") ? (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className="text-muted-foreground hover:text-foreground px-3 py-2 rounded-md text-sm font-medium transition-smooth"
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="text-muted-foreground hover:text-foreground px-3 py-2 rounded-md text-sm font-medium transition-smooth"
+                  >
+                    {item.name}
+                  </a>
+                )
               ))}
             </div>
           </div>
@@ -72,7 +83,17 @@ const Navbar = () => {
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background border-b border-border">
             {navItems.map((item) => {
               const Icon = item.icon;
-              return (
+              return item.href.startsWith("/") ? (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="text-muted-foreground hover:text-foreground flex items-center px-3 py-2 rounded-md text-base font-medium transition-smooth"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Icon className="w-4 h-4 mr-2" />
+                  {item.name}
+                </Link>
+              ) : (
                 <a
                   key={item.name}
                   href={item.href}
