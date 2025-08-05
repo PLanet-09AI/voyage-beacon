@@ -54,14 +54,18 @@ const Navbar = () => {
 
           {/* Desktop Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="modern" size="sm">
-              <LogIn className="w-4 h-4 mr-1" />
-              Login
-            </Button>
-            <Button variant="hero" size="sm">
-              <UserPlus className="w-4 h-4 mr-1" />
-              Sign Up
-            </Button>
+            <Link to="/login">
+              <Button variant="modern" size="sm">
+                <LogIn className="w-4 h-4 mr-1" />
+                Login
+              </Button>
+            </Link>
+            <Link to="/signup">
+              <Button variant="hero" size="sm">
+                <UserPlus className="w-4 h-4 mr-1" />
+                Sign Up
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -106,14 +110,18 @@ const Navbar = () => {
               );
             })}
             <div className="flex flex-col space-y-2 px-3 pt-4">
-              <Button variant="modern" size="sm" className="justify-center">
-                <LogIn className="w-4 h-4 mr-1" />
-                Login
-              </Button>
-              <Button variant="hero" size="sm" className="justify-center">
-                <UserPlus className="w-4 h-4 mr-1" />
-                Sign Up
-              </Button>
+              <Link to="/login" onClick={() => setIsOpen(false)}>
+                <Button variant="modern" size="sm" className="justify-center">
+                  <LogIn className="w-4 h-4 mr-1" />
+                  Login
+                </Button>
+              </Link>
+              <Link to="/signup" onClick={() => setIsOpen(false)}>
+                <Button variant="hero" size="sm" className="justify-center">
+                  <UserPlus className="w-4 h-4 mr-1" />
+                  Sign Up
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
