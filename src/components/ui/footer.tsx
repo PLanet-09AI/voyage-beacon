@@ -40,9 +40,9 @@ const Footer = () => {
             <div className="lg:col-span-2">
               <div className="flex items-center mb-6">
                 <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">A</span>
+                  <span className="text-white font-bold text-sm">L</span>
                 </div>
-                <span className="ml-2 text-xl font-bold text-foreground">AppName</span>
+                <span className="ml-2 text-xl font-bold text-foreground">Luyanda</span>
               </div>
               <p className="text-muted-foreground mb-6 max-w-md leading-relaxed">
                 Building the future of digital experiences. Join thousands of users who trust our platform for their most important projects.
@@ -111,7 +111,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             {/* Copyright */}
             <div className="flex items-center text-muted-foreground text-sm">
-              <span>© 2024 AppName. Made with</span>
+              <span>© 2024 Luyanda. Made with</span>
               <Heart className="w-4 h-4 mx-1 text-red-500 fill-current" />
               <span>for creators worldwide.</span>
             </div>
